@@ -41,7 +41,6 @@ Whether you’re just starting or want to brush up before a test, Lunex makes al
 - Nice, easy-to-read visuals with gradient backgrounds
 - Clear typography and step-by-step visual guides
 - ARIA landmarks, skip-to-content links, high contrast mode, reduced motion support
-- Animated watermark: "Made by Francesco Mora" with glow and gradient text
 
 ---
 
