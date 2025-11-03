@@ -1,30 +1,122 @@
-# Algebra learning website
+Perfect! Here’s a **full, comprehensive, clean `README.md`** for your Lunex platform, combining all features, installation instructions, folder structure, contributing info, and credits—ready to go on GitHub:
 
-*Automatically synced with your [v0.app](https://v0.app) deployments*
+# Lunex – The Ultimate Algebra Learning Platform
 
-[![Deployed on Vercel](https://img.shields.io/badge/Deployed%20on-Vercel-black?style=for-the-badge&logo=vercel)](https://vercel.com/chacos-projects-5e64a50d/v0-algebra-learning-website)
-[![Built with v0](https://img.shields.io/badge/Built%20with-v0.app-black?style=for-the-badge)](https://v0.app/chat/v4itlhu70za)
+Made by Francesco Mora – Lunex is a modern, student-focused platform designed to make learning algebra fast, effective, and enjoyable. It combines a complete curriculum, interactive lessons, dynamic practice, and gamified mini-games with progress tracking and accessibility features.
 
-## Overview
+Lunex is suitable for all students, from beginners to advanced learners, and provides a fully engaging learning experience.
 
-This repository will stay in sync with your deployed chats on [v0.app](https://v0.app).
-Any changes you make to your deployed app will be automatically pushed to this repository from [v0.app](https://v0.app).
+---
 
-## Deployment
+## Features
 
-Your project is live at:
+### Comprehensive Curriculum
+- Covers all algebra topics: basic equations, inequalities, functions, quadratics, exponents, and more.
+- Lessons include:
+  - Step-by-step explanations
+  - Worked examples
+  - Key points and formulas
+  - Interactive practice problems with progressive hints
+- Modular curriculum structure for easy updates and expansion.
 
-**[https://vercel.com/chacos-projects-5e64a50d/v0-algebra-learning-website](https://vercel.com/chacos-projects-5e64a50d/v0-algebra-learning-website)**
+### Mini-Games
+- Five engaging mini-games designed for fun and effective practice:
+  - **Equation Race:** Speed-solving with combos and power-ups
+  - **Memory Match:** Match equations with answers
+  - **Speed Challenge:** Timed multiple-choice challenges
+  - **Balance the Scale:** Visual understanding of equation balance
+  - **Algebra Shooter:** Arcade-style problem solving
+- Features include animations, particle effects, wave-based difficulty, scoring, XP rewards, and achievements.
 
-## Build your app
+### Quick Practice Mode
+- Unlimited dynamically generated problems across six problem types
+- Three difficulty levels
+- Tracks accuracy, streaks, and awards XP based on performance
 
-Continue building your app on:
+### Progress Tracking & Settings
+- Detailed statistics and badges for completed topics
+- Export and import of progress data
+- Theme, font size, and accessibility settings
+- Full PWA support with offline capabilities
 
-**[https://v0.app/chat/v4itlhu70za](https://v0.app/chat/v4itlhu70za)**
+### Modern Design & Accessibility
+- Gradient backgrounds and visual guides
+- Enhanced typography for readability
+- ARIA landmarks, skip-to-content links, high contrast mode, reduced motion support
+- Animated watermark: "Made by Francesco Mora" with gradient text and glow effects
 
-## How It Works
+---
 
-1. Create and modify your project using [v0.app](https://v0.app)
-2. Deploy your chats from the v0 interface
-3. Changes are automatically pushed to this repository
-4. Vercel deploys the latest version from this repository
+## Getting Started
+
+### Prerequisites
+- Node.js v18 or higher
+- npm or yarn package manager
+
+### Installation
+Clone the repository and install dependencies:
+```bash
+git clone https://github.com/yourusername/lunex.git
+cd lunex
+npm install
+npm run dev
+````
+
+### Build for Production
+
+```bash
+npm run build
+npm run start
+```
+
+Visit [http://localhost:3000](http://localhost:3000) in your browser to use Lunex.
+
+---
+
+## Folder Structure
+
+```
+lunex/
+├─ public/           # PWA manifest, offline page
+├─ src/
+│  ├─ components/    # Reusable UI components
+│  ├─ pages/         # Homepage, Topics, Lessons, Games, Practice, Settings
+│  ├─ context/       # Progress & Settings contexts
+│  ├─ lib/           # Utility functions & curriculum data
+│  └─ styles/        # CSS and animations
+```
+
+---
+
+## Contributing
+
+We welcome contributions to improve Lunex!
+
+To contribute:
+
+1. Fork the repository
+2. Create a new feature branch
+3. Make your changes
+4. Submit a pull request
+
+Please ensure new features align with Lunex’s accessibility, design, and learning standards.
+
+---
+
+## License
+
+MIT License – see [LICENSE](./LICENSE) for details.
+
+---
+
+## Credits
+
+* **Creator:** Francesco Mora
+* **Watermark & Branding:** Francesco Mora
+* **Inspired by:** Modern educational apps and gamified learning systems
+
+---
+
+## Screenshots / Demo
+
+*(Optional: Add screenshots or GIFs of Lunex in action here for visual preview)*
