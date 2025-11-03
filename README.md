@@ -109,12 +109,8 @@ MIT License – see [LICENSE](./LICENSE) for details.
 
 ## Credits
 
-* **Creator:** Francesco Mora
-* **Watermark & Branding:** Francesco Mora
-* **Inspired by:** Modern educational apps and gamified learning systems
+* **Creator:** Chesco
+* **Watermark & Branding:** Chesco
+* **Inspired by:** Overheard teachers in school talking about a website to teach kids about algebra and wanted to make my own.
 
 ---
-
-## Screenshots / Demo
-
-*(Optional: Add screenshots or GIFs of Lunex in action here for visual preview)*
