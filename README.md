@@ -1,64 +1,65 @@
-# Lunex – The Ultimate Algebra Learning Platform
+# Lunex
 
-Made by Chesco – Lunex is a modern, student-focused platform designed to make learning algebra fast, effective, and enjoyable. It combines a complete curriculum, interactive lessons, dynamic practice, and gamified mini-games with progress tracking and accessibility features.
+Made by Chesco – Lunex is a modern, student-friendly platform that makes learning algebra fast, fun, and actually enjoyable. It has a full curriculum, interactive lessons, practice problems, and mini-games to help you learn while having fun.  
 
-Lunex is suitable for all students, from beginners to advanced learners, and provides a fully engaging learning experience.
+Whether you’re just starting or want to brush up before a test, Lunex makes algebra simple and engaging.
 
 ---
 
-## Features
+## What’s Inside
 
-### Comprehensive Curriculum
+### Curriculum
 - Covers all algebra topics: basic equations, inequalities, functions, quadratics, exponents, and more.
 - Lessons include:
   - Step-by-step explanations
   - Worked examples
   - Key points and formulas
-  - Interactive practice problems with progressive hints
-- Modular curriculum structure for easy updates and expansion.
+  - Practice problems with hints
+- Easy to expand with new topics and lessons.
 
 ### Mini-Games
-- Five engaging mini-games designed for fun and effective practice:
-  - **Equation Race:** Speed-solving with combos and power-ups
+- Five fun ways to practice algebra:
+  - **Equation Race:** Solve problems fast with combos and power-ups
   - **Memory Match:** Match equations with answers
-  - **Speed Challenge:** Timed multiple-choice challenges
-  - **Balance the Scale:** Visual understanding of equation balance
-  - **Algebra Shooter:** Arcade-style problem solving
-- Features include animations, particle effects, wave-based difficulty, scoring, XP rewards, and achievements.
+  - **Speed Challenge:** Multiple-choice problems under time pressure
+  - **Balance the Scale:** See how equations stay balanced
+  - **Algebra Shooter:** Solve problems in an arcade-style game
+- Games now have animations, particle effects, XP rewards, and achievements.
 
-### Quick Practice Mode
-- Unlimited dynamically generated problems across six problem types
-- Three difficulty levels
-- Tracks accuracy, streaks, and awards XP based on performance
+### Quick Practice
+- Unlimited problems across 6 types
+- 3 difficulty levels
+- Tracks your accuracy, streaks, and XP
 
-### Progress Tracking & Settings
-- Detailed statistics and badges for completed topics
-- Export and import of progress data
-- Theme, font size, and accessibility settings
-- Full PWA support with offline capabilities
+### Progress & Settings
+- See stats and badges for each topic
+- Export/import your progress
+- Customize theme, font size, and accessibility settings
+- Works offline with PWA support
 
-### Modern Design & Accessibility
-- Gradient backgrounds and visual guides
-- Enhanced typography for readability
+### Design & Accessibility
+- Nice, easy-to-read visuals with gradient backgrounds
+- Clear typography and step-by-step visual guides
 - ARIA landmarks, skip-to-content links, high contrast mode, reduced motion support
-- Animated watermark: "Made by Francesco Mora" with gradient text and glow effects
+- Animated watermark: "Made by Francesco Mora" with glow and gradient text
 
 ---
 
 ## Getting Started
 
-### Prerequisites
-- Node.js v18 or higher
-- npm or yarn package manager
+### What You Need
+- Node.js v18+
+- npm or yarn
 
-### Installation
-Clone the repository and install dependencies:
+### Quick Setup
 ```bash
-git clone https://github.com/yourusername/lunex.git
+git clone https://github.com/ChescoV6/lunex.git
 cd lunex
 npm install
 npm run dev
 ````
+
+Then open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ### Build for Production
 
@@ -67,50 +68,44 @@ npm run build
 npm run start
 ```
 
-Visit [http://localhost:3000](http://localhost:3000) in your browser to use Lunex.
-
 ---
 
-## Folder Structure
+## Project Structure
 
 ```
 lunex/
 ├─ public/           # PWA manifest, offline page
 ├─ src/
-│  ├─ components/    # Reusable UI components
+│  ├─ components/    # Reusable UI pieces
 │  ├─ pages/         # Homepage, Topics, Lessons, Games, Practice, Settings
-│  ├─ context/       # Progress & Settings contexts
-│  ├─ lib/           # Utility functions & curriculum data
+│  ├─ context/       # Progress & Settings data
+│  ├─ lib/           # Curriculum and utilities
 │  └─ styles/        # CSS and animations
 ```
 
 ---
 
-## Contributing
+## How to Contribute
 
-We welcome contributions to improve Lunex!
+Want to help make Lunex better? Awesome!
 
-To contribute:
-
-1. Fork the repository
-2. Create a new feature branch
-3. Make your changes
+1. Fork the repo
+2. Create a new branch
+3. Add your changes
 4. Submit a pull request
 
-Please ensure new features align with Lunex’s accessibility, design, and learning standards.
+Make sure any new features fit the Lunex style and keep things accessible and fun.
 
 ---
 
 ## License
 
-MIT License – see [LICENSE](./LICENSE) for details.
+MIT – see [LICENSE](./LICENSE)
 
 ---
 
 ## Credits
 
-* **Creator:** Chesco
-* **Watermark & Branding:** Chesco
-* **Inspired by:** Overheard teachers in school talking about a website to teach kids about algebra and wanted to make my own.
-
----
+* **Created by:** Chesco
+* **Branding & Watermark:** Chesco
+* **Inspired by:** Ideas from overheard teachers and the goal to make a fun algebra site for students
