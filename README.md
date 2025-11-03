@@ -1,8 +1,6 @@
-Perfect! Here’s a **full, comprehensive, clean `README.md`** for your Lunex platform, combining all features, installation instructions, folder structure, contributing info, and credits—ready to go on GitHub:
-
 # Lunex – The Ultimate Algebra Learning Platform
 
-Made by Francesco Mora – Lunex is a modern, student-focused platform designed to make learning algebra fast, effective, and enjoyable. It combines a complete curriculum, interactive lessons, dynamic practice, and gamified mini-games with progress tracking and accessibility features.
+Made by Chesco – Lunex is a modern, student-focused platform designed to make learning algebra fast, effective, and enjoyable. It combines a complete curriculum, interactive lessons, dynamic practice, and gamified mini-games with progress tracking and accessibility features.
 
 Lunex is suitable for all students, from beginners to advanced learners, and provides a fully engaging learning experience.
 
