@@ -12,7 +12,7 @@ import { useProgress } from "@/lib/progress-context"
 export default function SpeedChallengePage() {
   const { addXP } = useProgress()
   const [gameState, setGameState] = useState<"menu" | "playing" | "finished">("menu")
-  const [timeLeft, setTimeLeft] = useState(60)
+  const [timeLeft, setTimeLeft] = useState(90)
   const [score, setScore] = useState(0)
   const [currentProblem, setCurrentProblem] = useState(generateProblem("one-step-add-sub", "easy"))
   const [options, setOptions] = useState<string[]>([])
@@ -51,7 +51,7 @@ export default function SpeedChallengePage() {
 
   const handleStart = () => {
     setGameState("playing")
-    setTimeLeft(60)
+    setTimeLeft(90)
     setScore(0)
     setAccuracy(100)
     setTotalAttempts(0)
@@ -92,8 +92,8 @@ export default function SpeedChallengePage() {
       setIsCorrect(null)
 
       // Generate next problem with increasing difficulty
-      const difficulty = score < 10 ? "easy" : score < 20 ? "medium" : "hard"
-      const typeIndex = Math.floor(score / 5) % problemTypes.length
+      const difficulty = score < 15 ? "easy" : score < 35 ? "medium" : "hard"
+      const typeIndex = Math.floor(score / 10) % problemTypes.length
       const problem = generateProblem(problemTypes[typeIndex], difficulty)
       setCurrentProblem(problem)
       setOptions(generateOptions(problem.answer))
@@ -121,18 +121,19 @@ export default function SpeedChallengePage() {
               Speed Challenge
             </h1>
             <p className="mb-8 text-pretty leading-relaxed text-muted-foreground">
-              Answer as many questions as possible in 60 seconds! Build streaks and maintain high accuracy for bonus XP.
+              Choose the correct answer from multiple choices! Take your time - you have 90 seconds. Focus on accuracy
+              over speed!
             </p>
             <div className="mb-6 grid grid-cols-2 gap-4 text-sm">
               <div className="rounded-lg border border-border bg-card p-3">
                 <Zap className="mx-auto mb-2 h-6 w-6 text-yellow-500" />
-                <div className="font-semibold text-foreground">Speed Bonus</div>
-                <div className="text-muted-foreground">Fast answers = more points</div>
+                <div className="font-semibold text-foreground">Multiple Choice</div>
+                <div className="text-muted-foreground">Pick the right answer</div>
               </div>
               <div className="rounded-lg border border-border bg-card p-3">
                 <Target className="mx-auto mb-2 h-6 w-6 text-green-500" />
-                <div className="font-semibold text-foreground">Accuracy Matters</div>
-                <div className="text-muted-foreground">Stay accurate for bonus XP</div>
+                <div className="font-semibold text-foreground">Build Accuracy</div>
+                <div className="text-muted-foreground">Get bonus XP for accuracy</div>
               </div>
             </div>
             <Button size="lg" onClick={handleStart} className="bg-gradient-to-r from-red-500 to-orange-500">
@@ -173,7 +174,7 @@ export default function SpeedChallengePage() {
                   </div>
                 </div>
               </div>
-              <Progress value={(timeLeft / 60) * 100} className={`h-2 ${timeLeft <= 10 ? "animate-pulse" : ""}`} />
+              <Progress value={(timeLeft / 90) * 100} className={`h-2 ${timeLeft <= 10 ? "animate-pulse" : ""}`} />
             </Card>
 
             <Card className="p-8">

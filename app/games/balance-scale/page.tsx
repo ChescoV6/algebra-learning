@@ -42,9 +42,23 @@ export default function BalanceScalePage() {
       difficulty: "easy",
     },
     {
+      leftSide: "x + 3",
+      rightSide: "10",
+      steps: [{ operation: "subtract", value: 3, description: "Subtract 3 from both sides" }],
+      solution: 7,
+      difficulty: "easy",
+    },
+    {
       leftSide: "3x",
       rightSide: "15",
       steps: [{ operation: "divide", value: 3, description: "Divide both sides by 3" }],
+      solution: 5,
+      difficulty: "easy",
+    },
+    {
+      leftSide: "2x",
+      rightSide: "10",
+      steps: [{ operation: "divide", value: 2, description: "Divide both sides by 2" }],
       solution: 5,
       difficulty: "easy",
     },
@@ -56,6 +70,16 @@ export default function BalanceScalePage() {
         { operation: "divide", value: 2, description: "Divide both sides by 2" },
       ],
       solution: 5,
+      difficulty: "medium",
+    },
+    {
+      leftSide: "3x + 3",
+      rightSide: "12",
+      steps: [
+        { operation: "subtract", value: 3, description: "Subtract 3 from both sides" },
+        { operation: "divide", value: 3, description: "Divide both sides by 3" },
+      ],
+      solution: 3,
       difficulty: "medium",
     },
     {
@@ -101,7 +125,7 @@ export default function BalanceScalePage() {
 
     if (operation === expectedStep.operation && value === expectedStep.value) {
       setFeedback({ type: "correct", message: "Perfect! The scale stays balanced!" })
-      const points = showHint ? 5 : 10
+      const points = showHint ? 8 : 12
       setScore(score + points)
 
       // Update the equation
@@ -188,8 +212,8 @@ export default function BalanceScalePage() {
               Balance the Scale
             </h1>
             <p className="mb-8 text-pretty leading-relaxed text-muted-foreground">
-              Keep the equation balanced by performing the same operations on both sides. Master the fundamental rule of
-              algebra through {levels.length} challenging levels!
+              Learn the golden rule of algebra! Whatever you do to one side, do to the other. Use hints anytime -
+              they're here to help you learn!
             </p>
             <div className="mb-6 grid grid-cols-3 gap-4 text-sm">
               <div className="rounded-lg border border-border bg-card p-3">

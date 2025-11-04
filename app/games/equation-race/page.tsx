@@ -21,7 +21,7 @@ interface Particle {
 export default function EquationRacePage() {
   const { addXP } = useProgress()
   const [gameState, setGameState] = useState<"menu" | "playing" | "finished">("menu")
-  const [timeLeft, setTimeLeft] = useState(60)
+  const [timeLeft, setTimeLeft] = useState(90)
   const [score, setScore] = useState(0)
   const [currentProblem, setCurrentProblem] = useState(generateProblem("one-step-add-sub", "easy"))
   const [userAnswer, setUserAnswer] = useState("")
@@ -79,7 +79,7 @@ export default function EquationRacePage() {
 
   const handleStart = () => {
     setGameState("playing")
-    setTimeLeft(60)
+    setTimeLeft(90)
     setScore(0)
     setStreak(0)
     setCombo(1)
@@ -117,21 +117,23 @@ export default function EquationRacePage() {
         spawnParticle(randomPowerUp === "double-time" ? "⚡ DOUBLE TIME!" : "💎 MEGA POINTS!", "text-yellow-500")
       }
 
-      const timeBonus = powerUp === "double-time" ? 4 : 2
+      const timeBonus = powerUp === "double-time" ? 6 : 3
       setTimeLeft(timeLeft + timeBonus)
 
       spawnParticle(`+${points}`, "text-green-500")
 
-      const difficulty = streak < 5 ? "easy" : streak < 15 ? "medium" : "hard"
+      const difficulty = streak < 10 ? "easy" : streak < 25 ? "medium" : "hard"
       setCurrentProblem(generateProblem("one-step-add-sub", difficulty))
       setUserAnswer("")
     } else {
       setStreak(0)
-      setCombo(1)
+      if (combo > 1) {
+        setCombo(Math.max(1, combo - 1))
+      }
       setPerfectStreak(0)
       setShake(true)
       setTimeout(() => setShake(false), 500)
-      spawnParticle("MISS!", "text-red-500")
+      spawnParticle("Try again!", "text-orange-500")
       setUserAnswer("")
     }
   }
@@ -157,19 +159,19 @@ export default function EquationRacePage() {
               Equation Race
             </h1>
             <p className="mb-8 text-pretty leading-relaxed text-muted-foreground">
-              Solve equations at lightning speed! Build combos, unlock power-ups, and race against time. Each correct
-              answer gives bonus time!
+              Solve simple equations at your own pace! Each correct answer gives you bonus time. Don't worry about
+              mistakes - just keep trying!
             </p>
             <div className="mb-6 grid grid-cols-2 gap-4 text-sm">
               <div className="rounded-lg border border-border bg-card p-3">
                 <Flame className="mx-auto mb-2 h-6 w-6 text-orange-500" />
-                <div className="font-semibold text-foreground">Combo System</div>
-                <div className="text-muted-foreground">Build streaks for multipliers</div>
+                <div className="font-semibold text-foreground">Build Streaks</div>
+                <div className="text-muted-foreground">Keep going for bonuses</div>
               </div>
               <div className="rounded-lg border border-border bg-card p-3">
                 <Star className="mx-auto mb-2 h-6 w-6 text-yellow-500" />
-                <div className="font-semibold text-foreground">Power-Ups</div>
-                <div className="text-muted-foreground">Unlock special abilities</div>
+                <div className="font-semibold text-foreground">Earn Power-Ups</div>
+                <div className="text-muted-foreground">Get special boosts</div>
               </div>
             </div>
             <Button size="lg" onClick={handleStart} className="bg-gradient-to-r from-yellow-500 to-orange-500">
@@ -211,7 +213,7 @@ export default function EquationRacePage() {
                   </div>
                 </div>
               </div>
-              <Progress value={(timeLeft / 60) * 100} className={`h-2 ${timeLeft <= 10 ? "animate-pulse" : ""}`} />
+              <Progress value={(timeLeft / 90) * 100} className={`h-2 ${timeLeft <= 10 ? "animate-pulse" : ""}`} />
               {powerUp !== "none" && (
                 <div className="mt-3 flex items-center justify-center gap-2 rounded-lg bg-gradient-to-r from-yellow-500/20 to-orange-500/20 p-2 text-sm font-semibold text-yellow-500">
                   <Clock className="h-4 w-4" />

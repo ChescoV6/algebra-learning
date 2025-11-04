@@ -10,23 +10,15 @@ const games = [
   {
     id: "equation-race",
     title: "Equation Race",
-    description: "Solve equations as fast as you can! Beat the clock and set new records.",
+    description: "Solve equations at your own pace! You get bonus time for each correct answer.",
     icon: Zap,
     difficulty: "Easy",
     color: "text-yellow-500",
   },
   {
-    id: "algebra-shooter",
-    title: "Algebra Shooter",
-    description: "Shoot the correct answers to destroy incoming problems!",
-    icon: Target,
-    difficulty: "Medium",
-    color: "text-blue-500",
-  },
-  {
     id: "memory-match",
     title: "Memory Match",
-    description: "Match equations with their solutions in this memory challenge.",
+    description: "Match equations with answers! A fun memory game that helps you learn.",
     icon: Brain,
     difficulty: "Easy",
     color: "text-purple-500",
@@ -34,18 +26,26 @@ const games = [
   {
     id: "balance-scale",
     title: "Balance the Scale",
-    description: "Keep the equation balanced by performing the same operations on both sides.",
+    description: "Learn the golden rule! Keep equations balanced with helpful hints.",
     icon: Trophy,
-    difficulty: "Medium",
+    difficulty: "Easy",
     color: "text-green-500",
   },
   {
     id: "speed-challenge",
     title: "Speed Challenge",
-    description: "Answer as many questions as possible in 60 seconds!",
+    description: "Multiple choice questions! Take your time and focus on accuracy.",
     icon: Timer,
-    difficulty: "Hard",
+    difficulty: "Medium",
     color: "text-red-500",
+  },
+  {
+    id: "algebra-shooter",
+    title: "Algebra Shooter",
+    description: "Stop falling problems by clicking the right answer! You have 5 lives.",
+    icon: Target,
+    difficulty: "Medium",
+    color: "text-blue-500",
   },
 ]
 
@@ -56,7 +56,7 @@ export default function GamesPage() {
         <div className="mb-8">
           <h1 className="text-balance text-4xl font-bold text-foreground">Math Games</h1>
           <p className="mt-2 text-pretty leading-relaxed text-muted-foreground">
-            Learn algebra through fun, interactive games. Challenge yourself and improve your skills!
+            Learn algebra through fun games designed for all skill levels. Every game helps you practice and improve!
           </p>
         </div>
 

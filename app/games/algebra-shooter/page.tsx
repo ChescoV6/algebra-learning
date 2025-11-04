@@ -21,7 +21,7 @@ export default function AlgebraShooterPage() {
   const { addXP } = useProgress()
   const [gameState, setGameState] = useState<"menu" | "playing" | "finished">("menu")
   const [score, setScore] = useState(0)
-  const [lives, setLives] = useState(3)
+  const [lives, setLives] = useState(5)
   const [problems, setProblems] = useState<FallingProblem[]>([])
   const [nextId, setNextId] = useState(0)
   const [wave, setWave] = useState(1)
@@ -34,7 +34,7 @@ export default function AlgebraShooterPage() {
   useEffect(() => {
     if (gameState !== "playing") return
 
-    const speed = powerUp === "slow-time" ? 1 : 2 + Math.floor(wave / 3)
+    const speed = powerUp === "slow-time" ? 0.5 : 1 + Math.floor(wave / 5)
     const gameLoop = setInterval(() => {
       setProblems((prev) => {
         const updated = prev.map((p) => ({ ...p, y: p.y + p.speed }))
@@ -46,17 +46,17 @@ export default function AlgebraShooterPage() {
               return false
             }
             setLives((l) => l - 1)
-            setCombo(0)
+            setCombo((c) => Math.max(0, c - 1))
             return false
           }
           return true
         })
 
-        const maxProblems = Math.min(3 + Math.floor(wave / 2), 5)
-        const spawnChance = 0.02 + wave * 0.005
+        const maxProblems = Math.min(2 + Math.floor(wave / 3), 4)
+        const spawnChance = 0.015 + wave * 0.003
 
         if (Math.random() < spawnChance && filtered.length < maxProblems) {
-          const difficulty = wave < 3 ? "easy" : wave < 6 ? "medium" : "hard"
+          const difficulty = wave < 5 ? "easy" : wave < 10 ? "medium" : "hard"
           const problem = generateProblem("one-step-add-sub", difficulty)
           const correct = problem.answer
           const wrong1 = (Number.parseInt(correct) + Math.floor(Math.random() * 5) + 1).toString()
@@ -106,7 +106,7 @@ export default function AlgebraShooterPage() {
   const handleStart = () => {
     setGameState("playing")
     setScore(0)
-    setLives(3)
+    setLives(5)
     setProblems([])
     setNextId(0)
     setWave(1)
@@ -130,11 +130,11 @@ export default function AlgebraShooterPage() {
       }
       setProblems((prev) => prev.filter((p) => p.id !== problemId))
 
-      if (score > 0 && (score + points) % 50 === 0) {
+      if (score > 0 && (score + points) % 100 === 0) {
         setWave(wave + 1)
       }
 
-      if ((combo + 1) % 5 === 0) {
+      if ((combo + 1) % 3 === 0) {
         const powerUps: Array<"slow-time" | "shield"> = ["slow-time", "shield"]
         const randomPowerUp = powerUps[Math.floor(Math.random() * powerUps.length)]
         setPowerUp(randomPowerUp)
@@ -144,7 +144,7 @@ export default function AlgebraShooterPage() {
         }
       }
     } else {
-      setCombo(0)
+      setCombo(Math.max(0, combo - 1))
       if (shieldActive) {
         setShieldActive(false)
         setPowerUp("none")
@@ -175,19 +175,19 @@ export default function AlgebraShooterPage() {
               Algebra Shooter
             </h1>
             <p className="mb-8 text-pretty leading-relaxed text-muted-foreground">
-              Shoot the correct answers to destroy falling problems! Build combos, survive waves, and unlock power-ups.
-              Don't let problems reach the bottom!
+              Click the correct answer to stop falling problems! You have 5 lives. Build combos for power-ups that help
+              you!
             </p>
             <div className="mb-6 grid grid-cols-2 gap-4 text-sm">
               <div className="rounded-lg border border-border bg-card p-3">
                 <Zap className="mx-auto mb-2 h-6 w-6 text-yellow-500" />
-                <div className="font-semibold text-foreground">Combo System</div>
-                <div className="text-muted-foreground">Chain hits for bonus points</div>
+                <div className="font-semibold text-foreground">Build Combos</div>
+                <div className="text-muted-foreground">Get bonus points</div>
               </div>
               <div className="rounded-lg border border-border bg-card p-3">
                 <Star className="mx-auto mb-2 h-6 w-6 text-purple-500" />
-                <div className="font-semibold text-foreground">Power-Ups</div>
-                <div className="text-muted-foreground">Slow time & shield protection</div>
+                <div className="font-semibold text-foreground">Earn Power-Ups</div>
+                <div className="text-muted-foreground">Slow time & shields</div>
               </div>
             </div>
             <Button size="lg" onClick={handleStart} className="bg-gradient-to-r from-blue-500 to-cyan-500">
@@ -221,7 +221,7 @@ export default function AlgebraShooterPage() {
                 <div>
                   <div className="text-sm text-muted-foreground">Lives</div>
                   <div className="flex items-center gap-1">
-                    {Array.from({ length: 3 }).map((_, i) => (
+                    {Array.from({ length: 5 }).map((_, i) => (
                       <Heart
                         key={i}
                         className={`h-6 w-6 ${i < lives ? "fill-red-500 text-red-500" : "text-muted-foreground"} ${shieldActive && i === lives - 1 ? "animate-pulse fill-blue-500 text-blue-500" : ""}`}

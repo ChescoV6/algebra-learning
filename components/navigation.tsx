@@ -19,13 +19,13 @@ export function Navigation() {
   ]
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-accent transition-transform group-hover:scale-105">
-            <Sparkles className="h-5 w-5 text-white" />
+    <nav className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur-xl supports-[backdrop-filter]:bg-background/80 shadow-sm">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <Link href="/" className="group flex items-center gap-3">
+          <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-primary via-accent to-primary shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:rotate-6 group-hover:shadow-xl animate-gradient">
+            <Sparkles className="h-6 w-6 text-white animate-pulse-slow" />
           </div>
-          <span className="hidden bg-gradient-to-r from-primary to-accent bg-clip-text font-bold text-transparent sm:inline">
+          <span className="hidden bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-xl font-bold text-transparent sm:inline animate-gradient">
             Lunex
           </span>
         </Link>
@@ -35,7 +35,13 @@ export function Navigation() {
             const Icon = item.icon
             const isActive = pathname === item.href
             return (
-              <Button key={item.href} asChild variant={isActive ? "default" : "ghost"} size="sm" className="gap-2">
+              <Button
+                key={item.href}
+                asChild
+                variant={isActive ? "default" : "ghost"}
+                size="sm"
+                className={`gap-2 transition-all duration-200 ${isActive ? "shadow-lg" : "hover:scale-105"}`}
+              >
                 <Link href={item.href}>
                   <Icon className="h-4 w-4" />
                   <span className="hidden sm:inline">{item.label}</span>
@@ -43,9 +49,10 @@ export function Navigation() {
               </Button>
             )
           })}
-          <div className="ml-2 hidden items-center gap-2 rounded-lg bg-gradient-to-r from-primary/10 to-accent/10 px-3 py-1.5 sm:flex">
-            <TrendingUp className="h-4 w-4 text-primary" />
-            <span className="text-sm font-semibold text-foreground">{progress.xp} XP</span>
+          <div className="ml-3 hidden items-center gap-2 rounded-xl bg-gradient-to-r from-primary/10 via-accent/10 to-primary/10 px-4 py-2 shadow-inner backdrop-blur-sm transition-all hover:scale-105 sm:flex animate-gradient">
+            <TrendingUp className="h-5 w-5 text-primary" />
+            <span className="text-sm font-bold text-foreground">{progress.xp}</span>
+            <span className="text-xs text-muted-foreground">XP</span>
           </div>
         </div>
       </div>

@@ -39,7 +39,7 @@ export default function MemoryMatchPage() {
   }, [gameState])
 
   const initializeGame = (selectedDifficulty: "easy" | "medium" | "hard") => {
-    const cardCount = selectedDifficulty === "easy" ? 6 : selectedDifficulty === "medium" ? 8 : 10
+    const cardCount = selectedDifficulty === "easy" ? 4 : selectedDifficulty === "medium" ? 6 : 8
     const problemDifficulty =
       selectedDifficulty === "easy" ? "easy" : selectedDifficulty === "medium" ? "medium" : "hard"
 
@@ -108,7 +108,7 @@ export default function MemoryMatchPage() {
             setPerfectMatches(perfectMatches + 1)
           }
 
-          const totalPairs = difficulty === "easy" ? 6 : difficulty === "medium" ? 8 : 10
+          const totalPairs = difficulty === "easy" ? 4 : difficulty === "medium" ? 6 : 8
           if (matches + 1 === totalPairs) {
             setGameState("finished")
             const baseXP = 50
@@ -132,7 +132,7 @@ export default function MemoryMatchPage() {
     }
   }
 
-  const cardCount = difficulty === "easy" ? 6 : difficulty === "medium" ? 8 : 10
+  const cardCount = difficulty === "easy" ? 4 : difficulty === "medium" ? 6 : 8
 
   return (
     <div className="min-h-screen bg-background">
@@ -155,7 +155,8 @@ export default function MemoryMatchPage() {
               Memory Match
             </h1>
             <p className="mb-8 text-pretty leading-relaxed text-muted-foreground">
-              Match equations with their solutions! Test your memory and algebra skills. Choose your difficulty level.
+              Flip cards to find matching equations and answers! Take your time and remember where cards are. Choose
+              your difficulty!
             </p>
 
             <div className="mb-6 space-y-3">
@@ -165,7 +166,7 @@ export default function MemoryMatchPage() {
                 className="w-full bg-gradient-to-r from-green-500 to-emerald-500"
               >
                 <Star className="mr-2 h-5 w-5" />
-                Easy (6 Pairs)
+                Easy (4 Pairs)
               </Button>
               <Button
                 size="lg"
@@ -173,7 +174,7 @@ export default function MemoryMatchPage() {
                 className="w-full bg-gradient-to-r from-purple-500 to-pink-500"
               >
                 <Sparkles className="mr-2 h-5 w-5" />
-                Medium (8 Pairs)
+                Medium (6 Pairs)
               </Button>
               <Button
                 size="lg"
@@ -181,7 +182,7 @@ export default function MemoryMatchPage() {
                 className="w-full bg-gradient-to-r from-orange-500 to-red-500"
               >
                 <Trophy className="mr-2 h-5 w-5" />
-                Hard (10 Pairs)
+                Hard (8 Pairs)
               </Button>
             </div>
           </Card>
@@ -218,7 +219,7 @@ export default function MemoryMatchPage() {
             </Card>
 
             <div
-              className={`grid gap-4 ${difficulty === "easy" ? "grid-cols-3 sm:grid-cols-4" : difficulty === "medium" ? "grid-cols-4" : "grid-cols-4 sm:grid-cols-5"}`}
+              className={`grid gap-4 ${difficulty === "easy" ? "grid-cols-2 sm:grid-cols-3" : difficulty === "medium" ? "grid-cols-3" : "grid-cols-3 sm:grid-cols-4"}`}
             >
               {cards.map((card) => (
                 <button
